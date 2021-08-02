@@ -1,0 +1,114 @@
+
+name of machine = pickle rick
+
+difficulty level = low(easy)
+
+info from machine 
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+This Rick and Morty themed challenge requires you to exploit a webserver to find 3 ingredients that will help Rick make his potion to transform himself back into a human from a pickle.
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+tasks
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+1} What is the first ingredient Rick needs?
+
+2} What is the first ingredient Rick needs?
+
+3} Whats the final ingredient Rick needs?
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+step 1
+
+//  scanning  //
+
+command - nmap $ip
+
+result : 
+	
+	open ports - {
+
+	                  80 - http
+	                  22 -ssh
+	              }
+
+step 2
+
+open browser nad navigate to ip 
+we find a webpage with a picture and some text 
+time to veiw source
+in the soource we get this 
+
+'''''''''''''''''''
+
+R1ckRul3s
+
+'''''''''''''''''''
+
+step 3 
+
+// finding its directories //
+
+we use dirbuster but i also did it manually 
+i found a robots.txt file at [ http://'ip'/robots.txt ]
+it contained a word 
+'''''''''''''''''''''''
+
+Wubbalubbadubdub
+
+'''''''''''''''''''''''
+i also found a login.php from dirbuster at [ http://'ip'/login.php ]
+
+
+step 3
+
+the login page asked for username and password which turned ou to be
+'''''''''''''''''''''''''''''''''''
+username = R1ckRul3s
+
+password = Wubbalubbadubdub
+
+'''''''''''''''''''''''''''''''''''
+
+we then are presented with a panel in which we can run commands 
+
+step 4 
+
+// getting the flags //
+
+i used the folllowing commands to see the flags many commands such as
+cat are forbidden to use so we have two options get a reverse shell or 
+use similar commands, i chose option 2
+
+# we can use sudo without password so use the commands after 2 with sudo
+# these flags are located in various locations find them! 
+
+commands : {
+	      
+	      ls
+          cat Sup3rS3cretPickl3Ingred.txt
+          cat 'second ingredients'
+          cat 3rd.txt
+          }
+
+
+flags : {
+	
+		mr. meeseek hair
+		1 jerry tear
+		fleeb juice
+        
+        }
+
+                    alternative methods 
+******************************************************************
+// you could get a reverse shell to bypass restictions
+// you could also try to gain access by using ssh
+
+******************************************************************
